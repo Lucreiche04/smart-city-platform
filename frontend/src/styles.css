@@ -1,0 +1,75 @@
+:root {
+  --bg: #f4f6f9; --card: #fff; --ink: #1b2430; --muted: #5d6b7c; --line: #e3e8ef;
+  --accent: #1f6feb; --danger: #d63b3b;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--ink); background: var(--bg);
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 1200px; margin: 0 auto; padding: 16px; }
+h2 { font-size: 1.05rem; margin: 0 0 12px; }
+
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  padding: 12px 16px; background: #0f2a44; color: #fff; }
+.brand { font-weight: 700; letter-spacing: .3px; }
+.topbar nav { display: flex; gap: 14px; }
+.topbar a { color: #c9d8ea; text-decoration: none; }
+.topbar a.active { color: #fff; font-weight: 600; }
+
+.grid { display: grid; gap: 16px; }
+.narrow { max-width: 720px; margin: 0 auto; }
+.two-cols { display: grid; gap: 16px; grid-template-columns: 3fr 2fr; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px; min-width: 0; }
+.card-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.muted { color: var(--muted); }
+.error { color: var(--danger); }
+.legend-note { font-size: .8rem; color: var(--muted); margin: 8px 0 0; }
+
+.banner { color: #fff; border-radius: 10px; padding: 12px 16px; }
+.kpis { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.kpi { display: flex; flex-direction: column; gap: 4px; }
+.kpi.alert { border-color: var(--danger); background: #fff5f5; }
+.kpi-label { color: var(--muted); font-size: .85rem; }
+.kpi-value { font-size: 1.8rem; font-weight: 700; }
+.kpi-value small, .big small { font-size: .8rem; font-weight: 400; color: var(--muted); }
+.kpi-sub { font-size: .8rem; color: var(--muted); }
+
+.chart { height: 280px; }
+.map { height: 320px; border-radius: 8px; overflow: hidden; }
+.forecast { border-top: 4px solid var(--accent); }
+.big { font-size: 2.4rem; font-weight: 700; margin: 4px 0; }
+.reliability { display: flex; align-items: center; gap: 8px; font-size: .85rem; margin: 12px 0; }
+.bar { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+.bar div { height: 100%; background: var(--accent); }
+details { font-size: .9rem; color: var(--muted); }
+
+.filters, .tabs { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.chip { border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 999px; padding: 6px 12px; cursor: pointer; }
+.chip.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+button, .button { background: var(--accent); color: #fff; border: 0; border-radius: 8px; padding: 10px 14px;
+  cursor: pointer; text-decoration: none; display: inline-block; font-size: .95rem; }
+input, select { border: 1px solid var(--line); border-radius: 8px; padding: 9px 10px; font-size: .95rem; }
+.actions { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.actions form, .login { display: flex; flex-direction: column; gap: 10px; }
+.consent { font-size: .8rem; color: var(--muted); display: flex; gap: 6px; align-items: flex-start; }
+.login { max-width: 360px; margin: 40px auto; }
+
+table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid var(--line); }
+tr.highlight { background: #eef5ff; font-weight: 600; }
+.table-wrap { overflow-x: auto; }
+.logs { max-height: 500px; overflow: auto; font-size: .75rem; background: #0f1720; color: #cfe3ff; padding: 12px; border-radius: 8px; }
+
+.pill { color: #fff; border-radius: 999px; padding: 4px 12px; font-size: .85rem; font-weight: 600; }
+.mobility-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 16px; align-items: start; }
+.mobility-facts p { margin: 0 0 12px; line-height: 1.45; }
+.tip { background: #f1f6ff; border-left: 3px solid var(--accent); padding: 10px 12px; border-radius: 6px; }
+
+/* US-019 : interface utilisable sur smartphone */
+@media (max-width: 800px) {
+  .two-cols, .actions, .mobility-grid { grid-template-columns: 1fr; }
+  .chart { height: 220px; }
+  .map { height: 260px; }
+  .kpi-value { font-size: 1.5rem; }
+  main { padding: 10px; }
+}
